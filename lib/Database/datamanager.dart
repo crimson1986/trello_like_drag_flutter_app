@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_app/Models/board_list_model.dart';
+import 'package:flutter_app/Models/board_list_item_model.dart';
 
 class DataManager {
   final CollectionReference collection = Firestore.instance.collection('Lists');

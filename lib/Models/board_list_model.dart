@@ -2,23 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../Models/board_list_item_model.dart';
 
-// class BoardListModel {
-//   String headerTitle;
-//   int identifierIndex;
-//   List<BoardListItemModel> items;
-
-//   BoardListModel({this.headerTitle, this.items, this.identifierIndex})
-//       : assert(identifierIndex != null) {
-//     if (this.headerTitle == null) {
-//       this.headerTitle = "";
-//     }
-
-//     if (this.items == null) {
-//       this.items = [];
-//     }
-//   }
-// }
-
 class BoardListModel {
   String headerTitle;
   int identifierIndex;
@@ -41,35 +24,6 @@ class BoardListModel {
   @override
   String toString() => "BoardListModel<$headerTitle>";
 }
-
-class BoardListItemModel {
-  String title;
-  int position;
-  DocumentReference reference;
-
-  BoardListItemModel(this.title, {this.position, this.reference});
-
-  factory BoardListItemModel.fromJson(Map<dynamic, dynamic> json) =>
-      _listItemFromJson(json);
-
-  Map<String, dynamic> toJson() => _listItemToJson(this);
-
-  @override
-  String toString() => "BoardListItemModel<$title>";
-}
-
-BoardListItemModel _listItemFromJson(Map<dynamic, dynamic> json) {
-  return BoardListItemModel(
-    json['title'] as String,
-    position: json['position'] == null ? 0 : (json['position'] as int),
-  );
-}
-
-Map<String, dynamic> _listItemToJson(BoardListItemModel instance) =>
-    <String, dynamic>{
-      'title': instance.title,
-      'position': instance.position,
-    };
 
 //1
 BoardListModel _listsFromJson(Map<dynamic, dynamic> json) {
@@ -96,6 +50,7 @@ Map<String, dynamic> _listsToJson(BoardListModel instance) => <String, dynamic>{
       'index': instance.identifierIndex,
       'items': _listItemList(instance.items),
     };
+
 // 4
 List<Map<String, dynamic>> _listItemList(List<BoardListItemModel> item) {
   if (item == null) {
