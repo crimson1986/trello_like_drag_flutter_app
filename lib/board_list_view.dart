@@ -6,6 +6,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_app/Database/datamanager.dart';
 import 'package:flutter_app/board_list_draggable_item.dart';
 
+import 'Models/board_list_item_model.dart';
 import 'Models/board_list_model.dart';
 import 'board_list.dart';
 
